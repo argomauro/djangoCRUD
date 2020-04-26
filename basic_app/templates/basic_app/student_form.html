@@ -1,0 +1,24 @@
+{% extends 'basic_app/basic_app_base.html' %}
+{% block body_block %}
+<h1>Registrazione di un nuovo Studente</h1>
+<p>
+  {% if not form.instance.pk  %}
+  Creaiamo un nuovo studente
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" class="btn btn-primary" name="Submit" value="Salva">
+</form>
+{% else %}
+Aggiorna lo Studente
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" class="btn btn-primary" name="Submit" value="Aggiorna">
+</form>
+
+{% endif %}
+</p>
+
+
+{% endblock %}

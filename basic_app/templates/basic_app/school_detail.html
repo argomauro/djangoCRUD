@@ -1,0 +1,42 @@
+{% extends 'basic_app/basic_app_base.html' %}
+{% block body_block %}
+<h1>Welcome to Detail School</h1>
+
+<h2>School detail</h2>
+<p>Nome: {{school.name}}</p>
+<p>Direttore: {{school.principal}}</p>
+<p>Dove: {{school.location}}</p>
+<h3>Studenti presenti a scuola</h3>
+{% for student in school.students.all %}
+<p>{{student.name}} ha {{student.age}} anni.</p>
+<!-- IMPLEMENTIAMO QUI LA LOGICA CRDU SUGLI STUDENTI -->
+<div class="container">
+  <table>
+    <thead>
+      <th>Visualizza dettaglio</th>
+      <th>Modifica Studente</th>
+      <th>Cancella studente</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class='btn btn-info' href="{% url 'basic_app:detailStudent' pk=student.pk %}">Visualiza Studente</a></td>
+        <td> <a class='btn btn-info' href="{% url 'basic_app:updateStudent' pk=student.pk %}">Modifica Studente</a>
+        </td>
+        <td> <a class='btn btn-info' href="{% url 'basic_app:deleteStudent' pk=student.pk %}">Cancella Studente</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endfor%}
+
+<div class="container">
+  <p>
+    <a class='btn btn-warning' href="{% url 'basic_app:updateScuola' pk=school.pk %}">Modifica Scuola</a>
+  </p>
+  <p>
+    <a class='btn btn-info' href="{% url 'basic_app:deleteScuola' pk=school.pk %}">Cancella Scuola</a>
+  </p>
+</div>
+
+{% endblock %}
