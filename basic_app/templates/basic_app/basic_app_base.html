@@ -1,9 +1,12 @@
-{% extends 'base.html' %}
-{% block navbar_block%}
+{% extends 'base.html' %} {% block navbar_block%}
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'basic_app:listScuola' %}">Lista scuole</a>
+    <a class="nav-link" href="{% url 'basic_app:listScuola' %}">Lista scuole</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'basic_app:createScuola' %}">New School</a>
+    <a class="nav-link" href="{% url 'basic_app:createScuola' %}">Nuova Scuola</a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'basic_app:createScuola' %}">Nuova Scuola2</a>
+</li>
+
 {% endblock%}
